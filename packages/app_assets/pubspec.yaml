@@ -1,0 +1,7 @@
+name: app_assets
+
+description: Dart package which manages the assets in the app.
+publish_to: none
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"

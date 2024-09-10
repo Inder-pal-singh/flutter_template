@@ -1,0 +1,20 @@
+name: api_client
+
+description: Dart package which manages the API calls in the app.
+publish_to: none
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.5.0+1
+  app_logger:
+    path: ../app_logger
+  app_storage:
+    path: ../app_storage
+  sentry_flutter: ^8.6.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

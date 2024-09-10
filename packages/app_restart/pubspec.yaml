@@ -1,0 +1,12 @@
+name: app_restart
+description: Dart package which manages the restart of the app.
+publish_to: none
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  logger: ^2.4.0
+  intl: ^0.19.0

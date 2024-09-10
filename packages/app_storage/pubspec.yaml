@@ -1,0 +1,10 @@
+name: app_storage
+
+description: Dart package which manages the storage in the app.
+publish_to: none
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+
+dependencies:
+  get_storage: ^2.1.1
