@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:app_logger/app_logger.dart';
-
 import '../models/content.model.dart';
 import 'content_provider.dart';
 
@@ -19,7 +17,6 @@ class ContentRepository {
         throw Exception("Error ${response.message}");
       }
     } catch (e) {
-      logger.e(e);
       throw Exception("Error $e");
     }
   }
@@ -33,7 +30,6 @@ class ContentRepository {
         throw Exception("Error ${response.message}");
       }
     } catch (e) {
-      logger.e(e);
       throw Exception("Error $e");
     }
   }

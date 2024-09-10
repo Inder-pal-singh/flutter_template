@@ -1,4 +1,3 @@
-import 'package:app_logger/app_logger.dart';
 import 'package:app_storage/app_storage.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -36,7 +35,7 @@ class ContentBloc extends Bloc<ContentEvent, ContentState> {
     on<ContentFetchCriticalEvent>(_onFetchCritical);
     on<ContentAppLocaleChangedEvent>((event, emit) {
       emit(state.copyWith(locale: event.locale));
-      logger.i("Locale changed to ${event.locale}, Triggering fetch");
+
       add(const ContentFetchCriticalEvent());
     });
     add(const ContentInitialEvent());
