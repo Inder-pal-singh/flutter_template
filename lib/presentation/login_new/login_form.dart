@@ -1,5 +1,6 @@
 import 'package:app_assets/app_assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_template/features/locale/app_locale.dart';
 import 'package:flutter_template/widgets/primary/primary_button.cmp.dart';
 
 import '../../widgets/primary/form_field.cmp.dart';
@@ -31,9 +32,9 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               const SizedBox(height: 40),
-              const Text(
-                'Login/Signup',
-                style: TextStyle(
+              Text(
+                AppLocale.of(context).translate.login,
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),

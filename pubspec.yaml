@@ -34,8 +34,6 @@ dependencies:
     path: packages/app_logger
   app_assets:
     path: packages/app_assets
-  app_content:
-    path: packages/app_content
   app_restart:
     path: packages/app_restart
   app_storage:

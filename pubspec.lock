@@ -51,13 +51,6 @@ packages:
       relative: true
     source: path
     version: "0.0.0"
-  app_content:
-    dependency: "direct main"
-    description:
-      path: "packages/app_content"
-      relative: true
-    source: path
-    version: "0.0.0"
   app_logger:
     dependency: "direct main"
     description:

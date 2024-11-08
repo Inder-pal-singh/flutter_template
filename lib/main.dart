@@ -37,6 +37,5 @@ void main() async {
       ?.createNotificationChannel(channel);
   // Bloc.observer = MyBlocObserver();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
   runApp(const AppRestart(child: RootApp()));
 }
