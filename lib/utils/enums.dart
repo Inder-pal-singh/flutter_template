@@ -15,3 +15,17 @@ extension FormStatusX on FormStatus {
   bool get isInProgress => this == FormStatus.inProgress;
   bool get isServerError => this == FormStatus.serverError;
 }
+
+enum BlocStatus { initial, loading, loaded, error }
+
+String blocStatusToJson(BlocStatus status) {
+  return status
+      .toString()
+      .split('.')
+      .last; // 'initial', 'loading', 'loaded', 'error'
+}
+
+BlocStatus blocStatusFromJson(String status) {
+  return BlocStatus.values
+      .firstWhere((e) => e.toString().split('.').last == status);
+}

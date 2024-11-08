@@ -1,3 +1,4 @@
+import 'package:app_assets/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/widgets/primary/primary_button.cmp.dart';
 
@@ -23,9 +24,10 @@ class _LoginViewState extends State<LoginView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const SizedBox(height: 20),
-              const Center(
-                child: FlutterLogo(
-                  size: 67,
+              Center(
+                child: Image.asset(
+                  AppAssets.logoOutlined,
+                  height: 100,
                 ),
               ),
               const SizedBox(height: 40),

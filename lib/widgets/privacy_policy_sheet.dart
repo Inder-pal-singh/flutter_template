@@ -1,8 +1,8 @@
-import 'package:app_content/app_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
+import '../features/content/content.dart';
 import '../utils/responsive_utils.dart';
 
 class PrivacyPolicySheet extends StatefulWidget {

@@ -60,10 +60,10 @@ class _LoginFormState extends State<LoginForm> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 10),
-                  const Center(child: FlutterLogo(size: 130)),
+                  Center(child: Image.asset(AppAssets.logoOutlined)),
                   const SizedBox(height: 16),
                   Text(
-                    "",
+                    "Welcome",
                     style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                           color: Colors.blueGrey.shade700,
                           fontWeight: FontWeight.w600,

@@ -1,0 +1,40 @@
+{
+  "@@locale": "en",
+  "login": "Log In",
+  "@login": {
+    "description": "Log in to your account"
+  },
+  "logout": "Log Out",
+  "@logout": {},
+  "name": "Name",
+  "@name": {
+    "description": "Name of the user"
+  },
+  "enter_name": "Enter your name",
+  "name_required": "Name is required",
+  "surname": "Surname",
+  "@surname": {
+    "description": "Surname of the user"
+  },
+  "enter_surname": "Enter your surname",
+  "surname_required": "Surname is required",
+  "email": "Email",
+  "enter_email": "Enter your email",
+  "email_invalid": "Invalid email",
+  "sendOtp": "Send OTP",
+  "register": "Register",
+  "dont_have_account": "Don't have an account? ",
+  "signUp": "Sign Up",
+  "already_have_account": "Already have an account? ",
+  "signIn": "Sign In",
+  "email_required": "Email is required",
+  "invalid_email": "Invalid email",
+  "privacy_policy": "Privacy Policy",
+  "login_in_with_a_unique_otp_code": "Log in with a unique OTP code sent to your email, no password needed, ensuring convenience and security.",
+  "resend_otp_in": "Resend OTP in",
+  "otp_sent": "OTP sent",
+  "did_not_receive_otp": "Didn't receive OTP? ",
+  "resend_otp": "Resend OTP",
+  "verify_otp": "Verify OTP",
+  "otp_has_been_resent": "OTP has been resent to your email"
+}

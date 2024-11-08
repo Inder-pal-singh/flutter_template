@@ -28,19 +28,6 @@ class ApiResponse {
   }
 }
 
-// String toImageUrl(String? imageUrl) {
-//   if (imageUrl == null) {
-//     return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpCKq1XnPYYDaUIlwlsvmLPZ-9-rdK28RToA&usqp=CAU";
-//   }
-//   if (imageUrl.startsWith("http")) {
-//     return imageUrl;
-//   }
-//   if (imageUrl.startsWith("/")) {
-//     return S3Client.s3Endpoint + imageUrl;
-//   }
-//   return "${S3Client.s3Endpoint}/$imageUrl";
-// }
-
 validateResponse(Response response) {
   if (response.statusCode == 200) {
     return response.data;
@@ -106,34 +93,3 @@ String calculateAge(DateTime birthDate) {
 
   return '${years}y ${months}m';
 }
-
-// Future<void> shareSocial(List<String> imageUrls, String text) async {
-//   try {
-//     if (imageUrls.isEmpty) {
-//       await Share.share(text);
-//       return;
-//     }
-
-//     List<Future<XFile>> downloadFutures = imageUrls.map((imageUrl) async {
-//       File? file;
-//       final documentDirectory = (await getTemporaryDirectory()).path;
-//       final filePath = '$documentDirectory/${imageUrl.split('/').last}';
-//       // if (File(filePath).existsSync()) {
-//       // file = File(filePath);
-//       // } else {
-//       final response = await http.get(Uri.parse(imageUrl));
-//       file = File(filePath);
-//       file.writeAsBytesSync(response.bodyBytes);
-//       // }
-//       return XFile(filePath);
-//     }).toList();
-
-//     // Wait for all images to download
-//     List<XFile> xFiles = await Future.wait(downloadFutures);
-
-//     // Share the images and text
-//     await Share.shareXFiles(xFiles, text: text);
-//   } catch (e) {
-//     logger.e('Error sharing content: $e');
-//   }
-// }

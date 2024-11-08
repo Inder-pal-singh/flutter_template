@@ -1,3 +1,3 @@
 class AppConfig {
-  static const String appName = 'KeeWee Moments';
+  static const String appName = 'Flutter Template';
 }

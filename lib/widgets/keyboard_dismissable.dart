@@ -8,7 +8,6 @@ class KeyboardDismissable extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          // context.read<HomeBloc>().add(const HomeSearchEnded());
           FocusScope.of(context).unfocus();
         },
         child: child);
