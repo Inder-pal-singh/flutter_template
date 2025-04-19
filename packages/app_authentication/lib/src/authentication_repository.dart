@@ -37,8 +37,6 @@ class AuthenticationRepository {
   }) async {
     final res = await _authApi.login(email: email);
     _otp = OtpModel.fromJson(res.data!);
-
-    // _controller.add(AuthenticationStatus.unauthenticated);
   }
 
   Future<void> register({
