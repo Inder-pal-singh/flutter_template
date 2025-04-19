@@ -1,5 +1,3 @@
-library aws_s3_upload;
-
 import 'dart:developer';
 import 'dart:io';
 

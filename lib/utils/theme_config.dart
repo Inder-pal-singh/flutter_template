@@ -47,7 +47,7 @@ class AppTheme {
         switchTheme: SwitchThemeData(
           thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
             if (!states.contains(WidgetState.selected)) {
-              return AppTheme.fontDarkGreyColor.withOpacity(0.4);
+              return AppTheme.fontDarkGreyColor.withValues(alpha: 102);
             }
             if (states.contains(WidgetState.disabled)) {
               return AppTheme.fontDarkGreyColor;
@@ -164,14 +164,14 @@ class AppTheme {
             backgroundColor: WidgetStateProperty.resolveWith<Color>(
               (Set<WidgetState> states) {
                 if (states.contains(WidgetState.disabled)) {
-                  return AppTheme.primaryColor.withOpacity(0.5);
+                  return AppTheme.primaryColor.withValues(alpha: 128);
                 }
 
                 if (states.contains(WidgetState.hovered)) {
-                  return AppTheme.primaryColor.withOpacity(0.8);
+                  return AppTheme.primaryColor.withValues(alpha: 204);
                 }
                 if (states.contains(WidgetState.pressed)) {
-                  return AppTheme.primaryColor.withOpacity(0.8);
+                  return AppTheme.primaryColor.withValues(alpha: 204);
                 }
 
                 return AppTheme.primaryColor;

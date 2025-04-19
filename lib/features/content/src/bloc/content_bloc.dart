@@ -16,7 +16,7 @@ class ContentBloc extends Bloc<ContentEvent, ContentState> {
       : super(const ContentState()) {
     on<ContentInitialEvent>((event, emit) {
       AppStorage storage = AppStorage();
-      add(ContentAppLocaleChangedEvent(storage.appLanguage ?? state.locale));
+      add(ContentAppLocaleChangedEvent(storage.appLanguage));
     });
 
     on<ContentFetchLegalEvent>((event, emit) async {
