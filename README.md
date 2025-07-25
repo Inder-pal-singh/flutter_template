@@ -102,19 +102,13 @@ flutter pub get
 
 ```bash
 # Install dependencies for all packages
-cd packages/app_logger && flutter pub get && cd ../..
-cd packages/app_authentication && flutter pub get && cd ../..
-cd packages/api_client && flutter pub get && cd ../..
-cd packages/app_storage && flutter pub get && cd ../..
-cd packages/app_restart && flutter pub get && cd ../..
-cd packages/app_assets && flutter pub get && cd ../..
-cd packages/s3_client && flutter pub get && cd ../..
+flutter pub get
 ```
 
 ### 3. Generate Code
 
 ```bash
-flutter packages pub run build_runner build
+ dart run build_runner watch
 ```
 
 ## 🔥 Firebase Setup
