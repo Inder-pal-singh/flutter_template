@@ -1,21 +1,15 @@
 import 'package:app_logger/app_logger.dart';
 import 'package:app_storage/app_storage.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 
 class ApiClient {
-  // String baseurl = "http://172.20.10.5:3001";
-  String baseurl = kReleaseMode
-      ? "https://mvp-keewee-moment.net17solutions.com"
-      // : 'http://172.20.10.5:3001';
-      : "http://192.168.29.3:3001";
-
   AppStorage preferences = AppStorage();
   final dio = Dio();
-  ApiClient() {
+  ApiClient({
+    required String baseUrl,
+  }) {
     dio.options = BaseOptions(
-      baseUrl: baseurl,
+      baseUrl: baseUrl,
       sendTimeout: const Duration(seconds: 25),
       receiveTimeout: const Duration(seconds: 25),
       validateStatus: (status) {
@@ -27,7 +21,8 @@ class ApiClient {
       onRequest: (options, handler) {
         options.headers['Authorization'] = 'Bearer ${preferences.token}';
         options.headers['lang'] = preferences.appLanguage;
-        logger.d('Request: ${options.method} ${options.path}');
+        logger
+            .d('Request:  ${options.method} ${options.baseUrl}${options.path}');
         return handler.next(options);
       },
       onResponse: (response, handler) {
@@ -35,7 +30,6 @@ class ApiClient {
         return handler.next(response);
       },
       onError: (DioException e, handler) {
-        Sentry.captureException(e, stackTrace: e.stackTrace);
         if (e.type == DioExceptionType.connectionTimeout) {
           throw DioException(
             message: 'The connection timed out',
@@ -67,8 +61,9 @@ class ApiClient {
             requestOptions: e.requestOptions,
           );
         } else {
+          logger.e('Error: ${e.response?.data}');
           throw DioException(
-            message: 'Something went wrong',
+            message: 'Something went wrong ${e.response?.data}',
             type: DioExceptionType.unknown,
             requestOptions: e.requestOptions,
           );
@@ -115,13 +110,15 @@ class ApiClient {
       CancelToken? cancelToken,
       ProgressCallback? onSendProgress,
       ProgressCallback? onReceiveProgress}) {
-    return dio.put(path,
-        queryParameters: queryParameters,
-        data: data,
-        options: options,
-        cancelToken: cancelToken,
-        onSendProgress: onSendProgress,
-        onReceiveProgress: onReceiveProgress);
+    return dio.put(
+      path,
+      queryParameters: queryParameters,
+      data: data,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
   }
 
   Future<Response<T>> delete<T>(String path,
@@ -129,10 +126,12 @@ class ApiClient {
       Object? data,
       Options? options,
       CancelToken? cancelToken}) {
-    return dio.delete(path,
-        queryParameters: queryParameters,
-        data: data,
-        options: options,
-        cancelToken: cancelToken);
+    return dio.delete(
+      path,
+      queryParameters: queryParameters,
+      data: data,
+      options: options,
+      cancelToken: cancelToken,
+    );
   }
 }

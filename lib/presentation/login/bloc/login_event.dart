@@ -7,12 +7,12 @@ sealed class LoginEvent extends Equatable {
   List<Object> get props => [];
 }
 
-final class LoginEmailSubmitted extends LoginEvent {
-  const LoginEmailSubmitted(this.email);
-  final String email;
+final class LoginPhoneSubmitted extends LoginEvent {
+  const LoginPhoneSubmitted(this.phone);
+  final String phone;
 
   @override
-  List<Object> get props => [email];
+  List<Object> get props => [phone];
 }
 
 final class LoginOtpSubmitted extends LoginEvent {
@@ -24,4 +24,3 @@ final class LoginOtpSubmitted extends LoginEvent {
 }
 
 final class LoginResendOtp extends LoginEvent {}
-

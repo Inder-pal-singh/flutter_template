@@ -10,8 +10,6 @@ final class _AuthenticationStatusChanged extends AuthenticationEvent {
   final AuthenticationStatus status;
 }
 
-final class AuthenticationLogoutRequested extends AuthenticationEvent {}
-
 final class UpdateNotificationPreferences extends AuthenticationEvent {
   const UpdateNotificationPreferences(this.isNotificationEnabled);
 

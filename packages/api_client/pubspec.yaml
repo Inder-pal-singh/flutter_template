@@ -14,7 +14,7 @@ dependencies:
     path: ../app_logger
   app_storage:
     path: ../app_storage
-  sentry_flutter: ^8.6.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

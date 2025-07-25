@@ -15,7 +15,7 @@ class AuthenticationBloc
   })  : _authenticationRepository = authenticationRepository,
         super(const AuthenticationState.unknown()) {
     on<_AuthenticationStatusChanged>(_onAuthenticationStatusChanged);
-    on<AuthenticationLogoutRequested>(_onAuthenticationLogoutRequested);
+
     _authenticationStatusSubscription = _authenticationRepository.status
         .listen((status) => add(_AuthenticationStatusChanged(status)));
   }
@@ -43,13 +43,5 @@ class AuthenticationBloc
       case AuthenticationStatus.unknown:
         return emit(const AuthenticationState.unknown());
     }
-  }
-
-  void _onAuthenticationLogoutRequested(
-    AuthenticationLogoutRequested event,
-    Emitter<AuthenticationState> emit,
-  ) {
-    emit(const AuthenticationState.unauthenticated());
-    _authenticationRepository.logOut();
   }
 }

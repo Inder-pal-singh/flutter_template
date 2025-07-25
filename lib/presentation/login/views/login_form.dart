@@ -19,7 +19,7 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -55,7 +55,8 @@ class _LoginFormState extends State<LoginForm> {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.only(
-                  bottom: Sizer.of(context).mq.viewInsets.bottom),
+                bottom: Sizer.of(context).mq.viewInsets.bottom,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -65,24 +66,22 @@ class _LoginFormState extends State<LoginForm> {
                   Text(
                     "Welcome",
                     style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                          color: Colors.blueGrey.shade700,
-                          fontWeight: FontWeight.w600,
-                          fontSize: sizer.fontSize(24),
-                        ),
+                      color: Colors.blueGrey.shade700,
+                      fontWeight: FontWeight.w600,
+                      fontSize: sizer.fontSize(24),
+                    ),
                   ),
                   const SizedBox(height: 30),
-                  _EmailInput(
-                    emailController: emailController,
-                  ),
+                  _PhoneInput(phoneController: phoneController),
                   const SizedBox(height: 16),
                   SizedBox(
                     width: sizer.width,
                     child: _LoginButton(
                       onSubmit: () {
                         if (_formKey.currentState!.validate()) {
-                          context
-                              .read<LoginBloc>()
-                              .add(LoginEmailSubmitted(emailController.text));
+                          context.read<LoginBloc>().add(
+                            LoginPhoneSubmitted(phoneController.text),
+                          );
                         }
                       },
                     ),
@@ -101,37 +100,35 @@ class _LoginFormState extends State<LoginForm> {
   }
 }
 
-class _EmailInput extends StatelessWidget {
-  final TextEditingController emailController;
-  const _EmailInput({required this.emailController});
+class _PhoneInput extends StatelessWidget {
+  final TextEditingController phoneController;
+  const _PhoneInput({required this.phoneController});
 
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
-      label: 'Email',
-      hint: 'Email',
-      controller: emailController,
+      label: 'Phone',
+      hint: 'Phone',
+      controller: phoneController,
       autofocus: true,
       prefixIcon: Padding(
         padding: const EdgeInsets.all(14.0),
-        child: SvgPicture.asset(
-          AppAssets.smsIcon,
-          width: 16,
-          height: 12,
-        ),
+        child: SvgPicture.asset(AppAssets.smsIcon, width: 16, height: 12),
       ),
-      autofillHints: const [AutofillHints.email],
+
+      autofillHints: const [AutofillHints.telephoneNumber],
       showLabel: false,
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Email is required';
+          return 'Phone is required';
         }
-        if (value.isEmail == false) {
-          return 'Invalid email';
+        if (value.isPhoneNumber == false) {
+          return 'Invalid phone';
         }
         return null;
       },
-      keyboardType: TextInputType.emailAddress,
+      maxLength: 11,
+      keyboardType: TextInputType.numberWithOptions(),
     );
   }
 }
@@ -145,10 +142,13 @@ class _LoginButton extends StatelessWidget {
     return BlocBuilder<LoginBloc, LoginState>(
       builder: (context, state) {
         return PrimaryButton(
-            isLoading: state.formStatus.isInProgress,
-            onPressed: onSubmit,
-            child: const Text('Send OTP',
-                style: TextStyle(color: Colors.white, fontSize: 17)));
+          isLoading: state.formStatus.isInProgress,
+          onPressed: onSubmit,
+          child: const Text(
+            'Send OTP',
+            style: TextStyle(color: Colors.white, fontSize: 17),
+          ),
+        );
       },
     );
   }

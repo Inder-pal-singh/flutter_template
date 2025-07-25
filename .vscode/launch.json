@@ -1,0 +1,56 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "flutter_template (Debug Staging)",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--flavor", "staging", "-t", "lib/main_stag.dart"],
+      "program": "lib/main_stag.dart"
+    },
+    {
+      "name": "flutter_template (Debug Production)",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--flavor", "production"],
+      "program": "lib/main_prod.dart"
+    },
+
+    {
+      "name": "flutter_template (Profile Staging)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "args": ["--flavor", "staging"],
+      "program": "lib/main_stag.dart"
+    },
+    {
+      "name": "flutter_template (Profile Production)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "args": ["--flavor", "production"],
+      "program": "lib/main_prod.dart"
+    },
+    {
+      "name": "flutter_template (Release Staging)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "args": ["--flavor", "staging"],
+      "program": "lib/main_stag.dart"
+    },
+
+    {
+      "name": "flutter_template (Release Production)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "args": ["--flavor", "production"],
+      "program": "lib/main_prod.dart"
+    }
+  ]
+}

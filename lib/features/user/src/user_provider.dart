@@ -1,9 +1,11 @@
 import 'package:api_client/api_client.dart';
 import 'package:app_logger/app_logger.dart';
 
+import '../../../utils/app_config.dart';
 import 'models/user.model.dart';
 
 class UserApi extends ApiClient {
+  UserApi() : super(baseUrl: AppConfig.baseUrl);
   static const String _endpoint = "/api/user";
 
   Future<ApiResponse?> getUser() async {
@@ -26,17 +28,18 @@ class UserApi extends ApiClient {
       throw Exception('Failed to get time zone');
     }
 
-    final response2 = await put('$_endpoint/profile', data: {
-      ...user.toJson(),
-      'preferences': {
-        'notifications': user.preferences.notifications
-            .copyWith(
-              timezone: timeZone,
-            )
-            .toJson(),
-        'locale': user.preferences.locale,
-      }
-    });
+    final response2 = await put(
+      '$_endpoint/profile',
+      data: {
+        ...user.toJson(),
+        'preferences': {
+          'notifications': user.preferences.notifications
+              .copyWith(timezone: timeZone)
+              .toJson(),
+          'locale': user.preferences.locale,
+        },
+      },
+    );
     validateResponse(response2);
     return ApiResponse.fromJson(response2.data);
   }
