@@ -9,7 +9,7 @@ class AppRestart extends StatefulWidget {
   @override
   AppRestartState createState() => AppRestartState();
 
-  static rebirth(BuildContext context) {
+  static void rebirth(BuildContext context) {
     context.findAncestorStateOfType<AppRestartState>()!.restartApp();
   }
 }

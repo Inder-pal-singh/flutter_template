@@ -63,7 +63,7 @@ class AppStorage {
     _prefs.erase();
   }
 
-  static init() async {
+  static Future<void> init() async {
     await GetStorage.init();
   }
 }

@@ -14,5 +14,5 @@ dependencies:
   api_client:
     path: ../api_client
   json_annotation: ^4.9.0
-  bloc: ^8.1.4
+  bloc: ^9.0.0
   equatable: ^2.0.5

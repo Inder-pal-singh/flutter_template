@@ -12,12 +12,10 @@ import 'policy.dart';
 import 'utils.dart';
 
 class S3Client {
-  static const String s3AccessKey = 'AKIA4MTWH4YK7XWJV4H3';
-  static const String s3SecretKey = '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';
-  static const String s3Bucket = 's3-keewee';
-  static const String s3Region = 'eu-central-1';
-  static const String s3Endpoint =
-      'https://s3-keewee.s3.eu-central-1.amazonaws.com';
+  static const String s3AccessKey = '<access_key>';
+  static const String s3SecretKey = '<secret_key>';
+  static const String s3Bucket = '<bucket>';
+  static const String s3Region = '<region>';
 
   /// Upload a file, returning the file's public URL on success.
   static Future<String?> uploadFile({

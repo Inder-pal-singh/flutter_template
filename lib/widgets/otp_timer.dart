@@ -21,7 +21,7 @@ class _OtpTimerState extends State<OtpTimer> {
     runTimer();
   }
 
-  runTimer() {
+  void runTimer() {
     timeLeft = 60;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (timeLeft == 0) {
@@ -63,7 +63,7 @@ class _OtpTimerState extends State<OtpTimer> {
                 color: Theme.of(context).colorScheme.secondary,
                 fontWeight: FontWeight.w700,
               ),
-            )
+            ),
           ],
         ),
       ),

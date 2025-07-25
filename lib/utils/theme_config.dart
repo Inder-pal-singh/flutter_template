@@ -116,7 +116,7 @@ class AppTheme {
           textTheme: ButtonTextTheme.primary,
         ),
         // alert dialog theme
-        dialogTheme: DialogTheme(
+        dialogTheme: DialogThemeData(
           backgroundColor: Colors.white,
           titleTextStyle: TextStyle(
             color: Colors.grey.shade800,

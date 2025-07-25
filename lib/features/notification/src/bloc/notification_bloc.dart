@@ -15,8 +15,11 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
     on<ListenToTokenChanges>(_listenToTokenChanges);
     add(const ListenToTokenChanges());
   }
-  _listenToTokenChanges(
-      ListenToTokenChanges event, Emitter<NotificationState> emit) async {
+
+  void _listenToTokenChanges(
+    ListenToTokenChanges event,
+    Emitter<NotificationState> emit,
+  ) async {
     logger.d('Listening to token changes');
     final token = await FirebaseMessaging.instance.getToken();
     logger.d('Token: $token');
@@ -24,11 +27,13 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
       logger.d('Updating token');
       repository.updateToken(token);
     }
-    FirebaseMessaging.instance.onTokenRefresh.listen((fcmToken) {
-      logger.d('FCM Token: $fcmToken');
-      repository.updateToken(fcmToken);
-    }).onError((err) {
-      logger.e('Error getting token: $err');
-    });
+    FirebaseMessaging.instance.onTokenRefresh
+        .listen((fcmToken) {
+          logger.d('FCM Token: $fcmToken');
+          repository.updateToken(fcmToken);
+        })
+        .onError((err) {
+          logger.e('Error getting token: $err');
+        });
   }
 }
