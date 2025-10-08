@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -51,7 +45,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyB9atmostllLcrHE0p_YGXhSmaXQ_GQ9SA',
-    appId: '1:155948170401:android:852c889daad4fcc866c4e0',
+    appId: '1:155948170401:android:feaf8c5095710ced66c4e0',
     messagingSenderId: '155948170401',
     projectId: 'flutter-template-b6f33',
     storageBucket: 'flutter-template-b6f33.firebasestorage.app',
@@ -59,10 +53,29 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyClWlvl1cu0zdXy3Q6cytkrvLnt5TTjwA0',
-    appId: '1:155948170401:ios:a45c953a26daaef266c4e0',
+    appId: '1:155948170401:ios:2d853053915e821566c4e0',
     messagingSenderId: '155948170401',
     projectId: 'flutter-template-b6f33',
     storageBucket: 'flutter-template-b6f33.firebasestorage.app',
-    iosBundleId: 'app.net17.template.stag',
+    iosBundleId: 'app.net17.staging',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBC9TA8-JlWlG1T1bTUz6rPFqiD64YWcrc',
+    appId: '1:155948170401:web:f2e8ae995b9ab9f066c4e0',
+    messagingSenderId: '155948170401',
+    projectId: 'flutter-template-b6f33',
+    authDomain: 'flutter-template-b6f33.firebaseapp.com',
+    storageBucket: 'flutter-template-b6f33.firebasestorage.app',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyClWlvl1cu0zdXy3Q6cytkrvLnt5TTjwA0',
+    appId: '1:155948170401:ios:c4e00c0e4a3d04c366c4e0',
+    messagingSenderId: '155948170401',
+    projectId: 'flutter-template-b6f33',
+    storageBucket: 'flutter-template-b6f33.firebasestorage.app',
+    iosBundleId: 'com.example.tradeJournal',
+  );
+
 }
