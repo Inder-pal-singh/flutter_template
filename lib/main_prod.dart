@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app_logger/app_logger.dart';
 import 'package:app_restart/app_restart.dart';
 import 'package:app_storage/app_storage.dart';
@@ -8,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_template/app.dart';
 import 'package:flutter_template/firebase_options_production.dart';
+import 'package:flutter_template/utils/http_overrides.dart';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -26,6 +29,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = MyHttpOverrides();
 
   await AppStorage.init();
   await Firebase.initializeApp(

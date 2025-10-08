@@ -13,9 +13,9 @@ import 'features/content/content.dart';
 import 'features/locale/app_locale.dart';
 import 'features/notification/notification.dart';
 import 'features/user/user.dart';
-import 'helpers/app_routes.dart';
 import 'presentation/login/login.dart';
 import 'presentation/splash/view.dart';
+import 'utils/app_routes.dart';
 import 'utils/theme_config.dart';
 
 class RootApp extends StatefulWidget {

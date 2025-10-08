@@ -18,7 +18,7 @@ case $1 in
   production)
     flutterfire config \
       --project=flutter-template-b6f33 \
-      --out=lib/firebase_options_production.dart \
+      --out=lib/firebase_options.dart \
       --ios-bundle-id=app.net17.template.prod \
       --ios-out=ios/flavors/production/GoogleService-Info.plist \
       --android-package-name=app.net17.flutter_app.prod \
