@@ -11,10 +11,13 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[],
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text('Home', style: Theme.of(context).textTheme.titleLarge),
+        ],
       ),
     );
   }
